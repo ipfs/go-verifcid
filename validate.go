@@ -27,6 +27,8 @@ var goodset = map[uint64]bool{
 	mh.KECCAK_512:   true,
 	mh.ID:           true,
 
+	mh.SHA2_256_NAMESPACE_TAGGED: true, // LazyLedger specific
+
 	mh.SHA1: true, // not really secure but still useful
 }
 
