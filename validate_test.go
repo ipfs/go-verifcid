@@ -35,7 +35,7 @@ func TestValidateCids(t *testing.T) {
 	mhcid := func(code uint64, length int) cid.Cid {
 		mhash, err := mh.Sum([]byte{}, code, length)
 		if err != nil {
-			t.Fatal(err)
+			t.Fatalf("%v: code: %x length: %d", err, code, length)
 		}
 		return cid.NewCidV1(cid.DagCBOR, mhash)
 	}
@@ -46,7 +46,8 @@ func TestValidateCids(t *testing.T) {
 	}{
 		{mhcid(mh.SHA2_256, 32), nil},
 		{mhcid(mh.SHA2_256, 16), ErrBelowMinimumHashLength},
-		{mhcid(mh.MURMUR3, 4), ErrPossiblyInsecureHashFunction},
+		{mhcid(mh.MURMUR3X64_64, 4), ErrPossiblyInsecureHashFunction},
+		{mhcid(mh.BLAKE3, 32), nil},
 	}
 
 	for i, cas := range cases {
