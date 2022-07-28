@@ -48,6 +48,8 @@ func TestValidateCids(t *testing.T) {
 		{mhcid(mh.SHA2_256, 16), ErrBelowMinimumHashLength},
 		{mhcid(mh.MURMUR3X64_64, 4), ErrPossiblyInsecureHashFunction},
 		{mhcid(mh.BLAKE3, 32), nil},
+		{mhcid(mh.BLAKE3, 69), nil},
+		{mhcid(mh.BLAKE3, 128), nil},
 	}
 
 	for i, cas := range cases {
