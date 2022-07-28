@@ -59,4 +59,12 @@ func TestValidateCids(t *testing.T) {
 		}
 	}
 
+	longBlake3Hex := "1e810104e0bb39f30b1a3feb89f536c93be15055482df748674b00d26e5a75777702e9791074b7511b59d31c71c62f5a745689fa6c9497f68bdf1061fe07f518d410c0b0c27f41b3cf083f8a7fdc67a877e21790515762a754a45dcb8a356722698a7af5ed2bb608983d5aa75d4d61691ef132efe8631ce0afc15553a08fffc60ee9369b"
+	longBlake3Mh, err := mh.FromHexString(longBlake3Hex)
+	if err != nil {
+		t.Fatalf("failed to produce a multihash from the long blake3 hash: %v", err)
+	}
+	if ValidateCid(cid.NewCidV1(cid.DagCBOR, longBlake3Mh)) != ErrAboveMaximumHashLength {
+		t.Errorf("a CID that was longer than the maximum hash length did not error with ErrAboveMaximumHashLength")
+	}
 }
