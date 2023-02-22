@@ -15,20 +15,21 @@ const minimumHashLength = 20
 const maximumHashLength = 128
 
 var goodset = map[uint64]bool{
-	mh.SHA2_256:     true,
-	mh.SHA2_512:     true,
-	mh.SHA3_224:     true,
-	mh.SHA3_256:     true,
-	mh.SHA3_384:     true,
-	mh.SHA3_512:     true,
-	mh.SHAKE_256:    true,
-	mh.DBL_SHA2_256: true,
-	mh.KECCAK_224:   true,
-	mh.KECCAK_256:   true,
-	mh.KECCAK_384:   true,
-	mh.KECCAK_512:   true,
-	mh.BLAKE3:       true,
-	mh.IDENTITY:     true,
+	mh.SHA2_256:                  true,
+	mh.SHA2_512:                  true,
+	mh.SHA3_224:                  true,
+	mh.SHA3_256:                  true,
+	mh.SHA3_384:                  true,
+	mh.SHA3_512:                  true,
+	mh.SHAKE_256:                 true,
+	mh.DBL_SHA2_256:              true,
+	mh.KECCAK_224:                true,
+	mh.KECCAK_256:                true,
+	mh.KECCAK_384:                true,
+	mh.KECCAK_512:                true,
+	mh.BLAKE3:                    true,
+	mh.IDENTITY:                  true,
+	mh.POSEIDON_BLS12_381_A1_FC1: true,
 
 	mh.SHA1: true, // not really secure but still useful
 }
