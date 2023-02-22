@@ -30,6 +30,8 @@ var goodset = map[uint64]bool{
 	mh.BLAKE3:                    true,
 	mh.IDENTITY:                  true,
 	mh.POSEIDON_BLS12_381_A1_FC1: true,
+	mh.SHA2_256_TRUNC254_PADDED:  true,
+	mh.X11:                       true,
 
 	mh.SHA1: true, // not really secure but still useful
 }
